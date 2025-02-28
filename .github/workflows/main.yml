@@ -36,8 +36,11 @@ jobs:
               id: login-ecr
               run: aws ecr get-login-password --region us-east-2 | docker login --username AWS --password-stdin 602681090358.dkr.ecr.us-east-2.amazonaws.com
 
-            - name: Build .NET Lambda Function
-              run: dotnet publish -c Release -o out
+            - name: Build .NET Project
+              run: dotnet build --configuration Release -o ./output
+
+            - name: Publish Project
+              run: dotnet publish -c Release -o ./output
 
             - name: Build Docker Image
               run: |
