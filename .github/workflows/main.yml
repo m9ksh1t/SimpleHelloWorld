@@ -49,9 +49,9 @@ jobs:
 
             - name: Push Docker to ECR
               run: |
-                docker push 602681090358.dkr.ecr.us-east-2.amazonaws.com/my-lambda-function:latest
+                docker push 602681090358.dkr.ecr.us-east-2.amazonaws.com/myecr-repo:latest
 
             - name: Update AWS Lambda Function
               run: |
                 aws lambda update-function-code --function-name my-dotnet-lambda \  
-                    --image-uri 602681090358.dkr.ecr.us-east-2.amazonaws.com/my-lambda-function:latest
+                    --image-uri 602681090358.dkr.ecr.us-east-2.amazonaws.com/myecr-repo:latest
