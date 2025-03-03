@@ -53,4 +53,4 @@ jobs:
 
             - name: Update AWS Lambda Function
               run: |
-                aws lambda update-function-code --function-name my-dotnet-lambda --image-uri 602681090358.dkr.ecr.us-east-2.amazonaws.com/myecr-repo:latest
+                aws lambda update-function-code --function-name simpleHelloWorld --image-uri 602681090358.dkr.ecr.us-east-2.amazonaws.com/myecr-repo:latest
