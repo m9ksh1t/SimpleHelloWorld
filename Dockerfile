@@ -11,4 +11,4 @@ COPY /output .
 EXPOSE 80
 
 # Specify the entry point for the application
-ENTRYPOINT ["dotnet", "SimplrHelloWorld.dll"]
+ENTRYPOINT ["dotnet", "SimpleHelloWorld.dll"]

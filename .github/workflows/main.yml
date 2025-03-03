@@ -45,7 +45,7 @@ jobs:
             - name: Build Docker Image
               run: |
                 docker build -t my-lambda-function .
-                docker tag myecr-repo:latest 602681090358.dkr.ecr.us-east-2.amazonaws.com/myecr-repo:latest
+                docker tag my-lambda-function:latest 602681090358.dkr.ecr.us-east-2.amazonaws.com/myecr-repo:latest
 
             - name: Push Docker to ECR
               run: |
