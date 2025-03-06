@@ -51,6 +51,10 @@ jobs:
               run: |
                 docker push 602681090358.dkr.ecr.us-east-2.amazonaws.com/myecr-repo:latest
 
-            - name: Update AWS Lambda Function
+            - name: Update kubeconfig
+              run: aws eks update-kubeconfig --name my-eks-cluster --region us-east-2
+            
+            - name: Deploy to Kubernetes
               run: |
-                aws lambda update-function-code --function-name simpleHelloWorld --image-uri 602681090358.dkr.ecr.us-east-2.amazonaws.com/myecr-repo:latest
+                kubectl set image deployment/my-eks-cluster my-eks-cluster=602681090358.dkr.ecr.us-east-2.amazonaws.com/myecr-repo:latest
+                kubectl rollout status deployment/my-eks-cluster
