@@ -53,8 +53,11 @@ jobs:
 
             - name: Update kubeconfig
               run: aws eks update-kubeconfig --name my-eks-cluster --region us-east-2
+
+            - name: Apply manifest
+              run: kubectl apply -f k8s/deployment.yml
             
             - name: Deploy to Kubernetes
               run: |
-                kubectl set image deployment/my-eks-cluster my-eks-cluster=602681090358.dkr.ecr.us-east-2.amazonaws.com/myecr-repo:latest
-                kubectl rollout status deployment/my-eks-cluster
+                kubectl set image deployment/hello-world-app my-dotnet-app=602681090358.dkr.ecr.us-east-2.amazonaws.com/myecr-repo:latest
+                kubectl rollout status deployment/hello-world-app
