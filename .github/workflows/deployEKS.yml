@@ -55,7 +55,9 @@ jobs:
               run: aws eks update-kubeconfig --name my-eks-cluster --region us-east-2
 
             - name: Apply manifest
-              run: kubectl apply -f k8s/deployment.yml
+              run: |
+                kubectl apply -f k8s/deployment.yml
+                kubectl apply -f k8s/service.yml
             
             - name: Deploy to Kubernetes
               run: |
